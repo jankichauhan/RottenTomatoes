@@ -16,6 +16,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SVProgressHUD.show()
         let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us")!
         let request = NSURLRequest(URL: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (respone:NSURLResponse!, data:NSData!, error: NSError!) ->
@@ -25,8 +26,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             if let json = json{
                 self.movies = json["movies"] as? [NSDictionary]
                 self.tableView.reloadData()
+                SVProgressHUD.dismiss()
             }
-            println(json)
+           // println(json)
         }
         
         tableView.dataSource = self
@@ -58,8 +60,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies![indexPath.row]
         cell.tileLabel.text = movie["title"] as? String
         cell.synopsisLabel.text = movie["synopsis"] as? String
+        let stringUrl: String =  movie.valueForKeyPath("posters.thumbnail") as! String
+        let newString = stringUrl.componentsSeparatedByString("dkpu1ddg7pbsk")
         
-       let url = NSURL(string: movie.valueForKeyPath("posters.thumbnail") as! String)!
+       let url = NSURL(string: "http://dkpu1ddg7pbsk"+newString[1])!
+        //print(url)
         cell.posterView.setImageWithURL(url)
         
         return cell

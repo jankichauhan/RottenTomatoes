@@ -15,6 +15,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var newString:[String]!
     var movie: NSDictionary!
     
     override func viewDidLoad() {
@@ -22,7 +23,14 @@ class MovieDetailViewController: UIViewController {
 
         titleLabel.text = movie["title"] as? String
         synopsisLabel.text = movie["synopsis"] as? String
-        let url = NSURL(string: movie.valueForKeyPath("posters.original") as! String)!
+        let stringUrl: String =  movie.valueForKeyPath("posters.thumbnail") as! String
+        
+         newString = stringUrl.componentsSeparatedByString("dkpu1ddg7pbsk")
+
+        println(newString[0])
+        
+        let url = NSURL(string: "http://dkpu1ddg7pbsk"+newString[1])!
+        
         posterView.setImageWithURL(url)
 
         
