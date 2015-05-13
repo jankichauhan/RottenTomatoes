@@ -14,15 +14,32 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var ratingsLabel: UILabel!
+    @IBOutlet weak var mpaaRatingLabel: UILabel!
+
+
     var newString:[String]!
     var movie: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.alpha = 0.6;
+        self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
 
-        titleLabel.text = movie["title"] as? String
+        let movieTitle = movie["title"] as? String
+        let movieYear = movie["year"] as! NSNumber
+        let movieCRating = movie.valueForKeyPath("ratings.critics_score") as! NSNumber
+        let movieARating =  movie.valueForKeyPath("ratings.audience_score") as! NSNumber
+        
+        self.title = movieTitle
+        
+        titleLabel.text = movieTitle! + " (" + movieYear.stringValue + ") "
         synopsisLabel.text = movie["synopsis"] as? String
+        ratingsLabel.text = "Critics Score: " + movieCRating.stringValue + " Audience Score: " + movieARating.stringValue
+        mpaaRatingLabel.text = movie["mpaa_rating"] as? String
+        
         let stringUrl: String =  movie.valueForKeyPath("posters.thumbnail") as! String
         
          newString = stringUrl.componentsSeparatedByString("dkpu1ddg7pbsk")
