@@ -49,7 +49,7 @@ class MovieDetailViewController: UIViewController {
         let url = NSURL(string: "http://dkpu1ddg7pbsk"+newString[1])!
         
         posterView.setImageWithURL(url)
-
+        
         
     }
 

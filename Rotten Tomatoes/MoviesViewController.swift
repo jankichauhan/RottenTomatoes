@@ -25,39 +25,53 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.orangeColor()]
 
-        SVProgressHUD.show()
-        let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us")!
-        let request = NSURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (respone:NSURLResponse!, data:NSData!, error: NSError!) ->
-            Void in
-            let json = NSJSONSerialization.JSONObjectWithData(
-                data, options: nil, error: nil) as? NSDictionary
-            if let json = json{
-                self.movies = json["movies"] as? [NSDictionary]
-                self.filteredData = json["movies"] as? [NSDictionary]
+        self.checkInternet(false, completionHandler:
+            {(internet:Bool) -> Void in
+                println(internet)
+                if (!internet)
+                {
+                    self.title = "Network Error"
+                }
+                else
+                {
+                    
+                    SVProgressHUD.show()
+                    let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us")!
+                    let request = NSURLRequest(URL: url)
+                    NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (respone:NSURLResponse!, data:NSData!, error: NSError!) ->
+                        Void in
+                        let json = NSJSONSerialization.JSONObjectWithData(
+                            data, options: nil, error: nil) as? NSDictionary
+                        if let json = json{
+                            self.movies = json["movies"] as? [NSDictionary]
+                            self.filteredData = json["movies"] as? [NSDictionary]
+                            
+                            //    println(self.movies)
+                            self.tableView.reloadData()
+                            SVProgressHUD.dismiss()
+                        }
+                    }
+                    
+                    self.tableView.dataSource = self
+                    self.tableView.delegate = self
+                    
+                    self.searchController = UISearchController(searchResultsController: nil)
+                    self.searchController.searchResultsUpdater = self
+                    self.searchController.dimsBackgroundDuringPresentation = false
+                    
+                    self.searchController.searchBar.sizeToFit()
+                    self.tableView.tableHeaderView = self.searchController.searchBar
+                    
+                    self.definesPresentationContext = true
+                    
+                    self.refreshControl = UIRefreshControl()
+                    self.refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+                    self.tableView.insertSubview(self.refreshControl, atIndex: 0)
+                    
 
-             //    println(self.movies)
-                self.tableView.reloadData()
-                SVProgressHUD.dismiss()
-            }
-        }
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        
-        searchController.searchBar.sizeToFit()
-        tableView.tableHeaderView = searchController.searchBar
-        
-        definesPresentationContext = true
-        
-        refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
-
+                }
+                
+        })
         
     }
 
@@ -156,6 +170,29 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         movieDetailController.movie = movie
         
     }
+    
+    func checkInternet(flag:Bool, completionHandler:(internet:Bool) -> Void)
+    {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let url = NSURL(string: "http://www.google.com/")
+        let request = NSMutableURLRequest(URL: url!)
+        
+        request.HTTPMethod = "HEAD"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
+        request.timeoutInterval = 10.0
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue:NSOperationQueue.mainQueue(), completionHandler:
+            {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                
+                let rsp = response as? NSHTTPURLResponse
+                
+                completionHandler(internet:rsp?.statusCode == 200)
+        })
+    }
+    
 
 
 }
