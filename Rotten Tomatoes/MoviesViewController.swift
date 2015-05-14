@@ -8,12 +8,14 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UISearchResultsUpdating {
 
-    @IBOutlet weak var movieSearchBar: UISearchBar!
+  //  @IBOutlet weak var movieSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var movies: [NSDictionary]?
+    var movies: [NSDictionary]!
     var refreshControl: UIRefreshControl!
+    var searchController: UISearchController!
+    var filteredData: [NSDictionary]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +34,25 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 data, options: nil, error: nil) as? NSDictionary
             if let json = json{
                 self.movies = json["movies"] as? [NSDictionary]
+                self.filteredData = json["movies"] as? [NSDictionary]
+
+             //    println(self.movies)
                 self.tableView.reloadData()
                 SVProgressHUD.dismiss()
             }
-           // println(json)
         }
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -70,7 +83,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if let movies = movies{
+        if let movies = filteredData{
             return movies.count
         }
         else{
@@ -84,7 +97,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier(
             "MoviesCell", forIndexPath: indexPath) as! MovieCell
         
-        let movie = movies![indexPath.row]
+        let movie = filteredData![indexPath.row]
         let movieRating = movie["mpaa_rating"] as? String
         let movieSynopsis = movie["synopsis"] as? String
         cell.tileLabel.text = movie["title"] as? String
@@ -104,6 +117,32 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+
+        if(!searchText.isEmpty){
+            filteredData.removeAll(keepCapacity: true)
+            if let movies = movies{
+                for movie in movies{
+                    
+                    let stringMatch = (movie["title"] as? String)!.rangeOfString(searchText,options: .CaseInsensitiveSearch)
+                    if(stringMatch != nil){
+                        filteredData.append(movie)
+                    }
+                }
+            }
+        }else{
+            filteredData.removeAll(keepCapacity: true)
+            if let movies = movies{
+                for movie in movies{
+                        filteredData.append(movie)
+                }
+            }
+            
+        }
+        tableView.reloadData()
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -112,7 +151,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)!
         
-        let movie = movies![indexPath.row]
+        let movie = filteredData![indexPath.row]
         let movieDetailController = segue.destinationViewController as! MovieDetailViewController
         movieDetailController.movie = movie
         
