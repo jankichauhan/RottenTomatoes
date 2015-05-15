@@ -24,6 +24,10 @@ class DVDViewController: UIViewController , UITableViewDataSource, UITableViewDe
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.orangeColor()]
         
+        self.tabBarController?.tabBar.alpha = 0.85;
+        self.tabBarController?.tabBar.barTintColor = UIColor.blackColor()
+        self.tabBarController?.tabBar.tintColor = UIColor.orangeColor()
+        
         self.checkInternet(false, completionHandler:
             {(internet:Bool) -> Void in
                 println(internet)

@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="22" sectionFooterHeight="22" id="8DL-OC-H5R">
-                                <rect key="frame" x="0.0" y="36" width="320" height="532"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +35,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="70X-ZV-WlM">
                                                     <rect key="frame" x="97" y="37" width="215" height="72"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -88,17 +88,10 @@
                                 <rect key="frame" x="0.0" y="7" width="320" height="561"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view alpha="0.59999999999999964" contentMode="scaleToFill" id="AJ2-ct-o96">
+                            <view alpha="0.74999999999999978" contentMode="scaleToFill" id="AJ2-ct-o96">
                                 <rect key="frame" x="0.0" y="300" width="320" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g8J-Eo-syK">
-                                        <rect key="frame" x="8" y="101" width="304" height="155"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1U0-qw-iBr">
                                         <rect key="frame" x="8" y="43" width="304" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,6 +111,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g8J-Eo-syK">
+                                        <rect key="frame" x="8" y="92" width="304" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="2382" y="447"/>
         </scene>
-        <!--View Controller-->
+        <!--DVDs-->
         <scene sceneID="VZC-bg-i4O">
             <objects>
                 <viewController id="7l8-ti-z2a" customClass="DVDViewController" customModule="Rotten_Tomatoes" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="22" sectionFooterHeight="22" id="2FG-0N-KTm">
-                                <rect key="frame" x="0.0" y="40" width="320" height="534"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="574"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -160,24 +160,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fBU-pE-JE2">
+                                                    <rect key="frame" x="8" y="8" width="85" height="114"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yUd-Em-dgg">
-                                                    <rect key="frame" x="108" y="8" width="193" height="21"/>
+                                                    <rect key="frame" x="101" y="8" width="209" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gzt-Ld-cbn">
-                                                    <rect key="frame" x="108" y="37" width="204" height="80"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gzt-Ld-cbn">
+                                                    <rect key="frame" x="101" y="38" width="203" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fBU-pE-JE2">
-                                                    <rect key="frame" x="8" y="8" width="59" height="114"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,7 +193,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZNs-Nd-TSF"/>
+                    <navigationItem key="navigationItem" title="DVDs" id="ZNs-Nd-TSF"/>
                     <connections>
                         <outlet property="tableView" destination="2FG-0N-KTm" id="VqV-UI-WTS"/>
                     </connections>
@@ -207,7 +207,7 @@
             <objects>
                 <tabBarController id="qK6-Uh-M1x" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Q6k-ff-mXB">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="Q6k-ff-mXB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -221,11 +221,11 @@
             </objects>
             <point key="canvasLocation" x="373" y="510"/>
         </scene>
-        <!--Mvoies-->
+        <!--Movies-->
         <scene sceneID="51p-T5-k6J">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="btG-c8-UBQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mvoies" id="NzK-rF-jbx"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="movie-icon.png" id="NzK-rF-jbx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="StW-R7-p0H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -244,7 +244,7 @@
         <scene sceneID="CGW-RA-9to">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mSR-xk-LPO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="DVDs" id="PwW-GG-hLT"/>
+                    <tabBarItem key="tabBarItem" title="DVDs" image="DVD-icon.png" id="PwW-GG-hLT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QC0-K7-xS5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -260,6 +260,10 @@
             <point key="canvasLocation" x="845" y="841"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DVD-icon.png" width="32" height="32"/>
+        <image name="movie-icon.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -268,5 +272,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Lcu-e7-2r2"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="1" green="0.55152291691397093" blue="0.098169093449440692" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="1" green="0.55152291689999999" blue="0.098169093449999995" alpha="1" colorSpace="calibratedRGB"/>
 </document>

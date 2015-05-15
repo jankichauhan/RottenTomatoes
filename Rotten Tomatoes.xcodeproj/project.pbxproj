@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7C5A1BD5FF0CC842E8611EE2 /* libPods-Rotten Tomatoes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A1B37BFBBD28FBBF251368 /* libPods-Rotten Tomatoes.a */; };
+		B5777E931B066D2100867D03 /* dvd.ico in Resources */ = {isa = PBXBuildFile; fileRef = B5777E901B066D2100867D03 /* dvd.ico */; };
+		B5777E941B066D2100867D03 /* movie.ico in Resources */ = {isa = PBXBuildFile; fileRef = B5777E911B066D2100867D03 /* movie.ico */; };
+		B5777E951B066D2100867D03 /* video.ico in Resources */ = {isa = PBXBuildFile; fileRef = B5777E921B066D2100867D03 /* video.ico */; };
+		B5777E981B066F6300867D03 /* DVD-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5777E961B066F6300867D03 /* DVD-icon.png */; };
+		B5777E991B066F6300867D03 /* movie-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B5777E971B066F6300867D03 /* movie-icon.png */; };
 		B58EA65A1B056FDD00B39F47 /* DVDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58EA6591B056FDD00B39F47 /* DVDViewController.swift */; };
 		B59D77741AFBE494004DC49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D77731AFBE494004DC49D /* AppDelegate.swift */; };
 		B59D77791AFBE494004DC49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59D77771AFBE494004DC49D /* Main.storyboard */; };
@@ -32,6 +37,15 @@
 /* Begin PBXFileReference section */
 		3113FD652D55D5B448F35071 /* Pods-Rotten Tomatoes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rotten Tomatoes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rotten Tomatoes/Pods-Rotten Tomatoes.release.xcconfig"; sourceTree = "<group>"; };
 		A3A1B37BFBBD28FBBF251368 /* libPods-Rotten Tomatoes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rotten Tomatoes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5777E881B066C8B00867D03 /* cd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cd.png; sourceTree = "<group>"; };
+		B5777E891B066C8B00867D03 /* dvd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dvd.png; sourceTree = "<group>"; };
+		B5777E8A1B066C8B00867D03 /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
+		B5777E8B1B066C8B00867D03 /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
+		B5777E901B066D2100867D03 /* dvd.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = dvd.ico; path = ../../../Downloads/dvd.ico; sourceTree = "<group>"; };
+		B5777E911B066D2100867D03 /* movie.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = movie.ico; path = ../../../Downloads/movie.ico; sourceTree = "<group>"; };
+		B5777E921B066D2100867D03 /* video.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = video.ico; path = ../../../Downloads/video.ico; sourceTree = "<group>"; };
+		B5777E961B066F6300867D03 /* DVD-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVD-icon.png"; sourceTree = "<group>"; };
+		B5777E971B066F6300867D03 /* movie-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movie-icon.png"; sourceTree = "<group>"; };
 		B58EA6591B056FDD00B39F47 /* DVDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVDViewController.swift; sourceTree = "<group>"; };
 		B59D776E1AFBE494004DC49D /* Rotten Tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten Tomatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D77721AFBE494004DC49D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +102,15 @@
 		B59D77651AFBE494004DC49D = {
 			isa = PBXGroup;
 			children = (
+				B5777E961B066F6300867D03 /* DVD-icon.png */,
+				B5777E971B066F6300867D03 /* movie-icon.png */,
+				B5777E901B066D2100867D03 /* dvd.ico */,
+				B5777E911B066D2100867D03 /* movie.ico */,
+				B5777E921B066D2100867D03 /* video.ico */,
+				B5777E881B066C8B00867D03 /* cd.png */,
+				B5777E891B066C8B00867D03 /* dvd.png */,
+				B5777E8A1B066C8B00867D03 /* movie.png */,
+				B5777E8B1B066C8B00867D03 /* video.png */,
 				B59D77701AFBE494004DC49D /* Rotten Tomatoes */,
 				B59D77861AFBE495004DC49D /* Rotten TomatoesTests */,
 				B59D776F1AFBE494004DC49D /* Products */,
@@ -245,6 +268,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5777E981B066F6300867D03 /* DVD-icon.png in Resources */,
+				B5777E991B066F6300867D03 /* movie-icon.png in Resources */,
+				B5777E931B066D2100867D03 /* dvd.ico in Resources */,
+				B5777E941B066D2100867D03 /* movie.ico in Resources */,
+				B5777E951B066D2100867D03 /* video.ico in Resources */,
 				B59D77791AFBE494004DC49D /* Main.storyboard in Resources */,
 				B59D777E1AFBE494004DC49D /* LaunchScreen.xib in Resources */,
 				B59D777B1AFBE494004DC49D /* Images.xcassets in Resources */,
