@@ -29,12 +29,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.tabBarController?.tabBar.barTintColor = UIColor.blackColor()
         self.tabBarController?.tabBar.tintColor = UIColor.orangeColor()
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         self.checkInternet(false, completionHandler:
             {(internet:Bool) -> Void in
                 println(internet)
                 if (!internet)
                 {
-                    self.title = "Network Error"
+                    self.title = "⚠️ Network Error"
                 }
                 else
                 {
@@ -130,8 +133,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
 
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        println(" in didDeselectRowAtIndexPath")
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

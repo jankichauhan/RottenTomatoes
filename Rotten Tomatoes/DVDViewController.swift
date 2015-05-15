@@ -33,7 +33,7 @@ class DVDViewController: UIViewController , UITableViewDataSource, UITableViewDe
                 println(internet)
                 if (!internet)
                 {
-                    self.title = "Network Error"
+                    self.title = "⚠️ Network Error"
                 }
                 else
                 {
@@ -129,7 +129,7 @@ class DVDViewController: UIViewController , UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
