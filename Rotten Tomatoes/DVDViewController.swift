@@ -39,7 +39,11 @@ class DVDViewController: UIViewController , UITableViewDataSource, UITableViewDe
                 {
                     
                     SVProgressHUD.show()
-                    let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us")!
+                    let apiKey = "dagqdghwaq3e3mxyrp7kmmj5"
+                    let urlString = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=" + apiKey + "&limit=20&country=us"
+                    
+
+                    let url = NSURL(string:urlString)!
                     let request = NSURLRequest(URL: url)
                     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (respone:NSURLResponse!, data:NSData!, error: NSError!) ->
                         Void in

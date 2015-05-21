@@ -29,9 +29,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.tabBarController?.tabBar.barTintColor = UIColor.blackColor()
         self.tabBarController?.tabBar.tintColor = UIColor.orangeColor()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
         self.checkInternet(false, completionHandler:
             {(internet:Bool) -> Void in
                 println(internet)
@@ -43,7 +40,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 {
                     
                     SVProgressHUD.show()
-                    let url = NSURL(string: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us")!
+                    let apiKey = "dagqdghwaq3e3mxyrp7kmmj5"
+                    let urlString = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + apiKey + "&limit=20&country=us"
+
+                    let url = NSURL(string: urlString)!
                     let request = NSURLRequest(URL: url)
                     NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (respone:NSURLResponse!, data:NSData!, error: NSError!) ->
                         Void in
