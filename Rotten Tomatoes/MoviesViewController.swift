@@ -16,10 +16,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var refreshControl: UIRefreshControl!
     var searchController: UISearchController!
     var filteredData: [NSDictionary]!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.navigationController?.navigationBar.alpha = 0.6;
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.orangeColor()
